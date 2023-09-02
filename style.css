@@ -1,11 +1,11 @@
 html, body {
     height: 100%;
     margin: 0;
-    padding: 0;  
+    padding: 10px;  
 }
 
 body {
-    background-color:white;
+    background-color:rgb(241, 241, 237);
     display: flex;
     justify-content: center;
     align-items: center;
