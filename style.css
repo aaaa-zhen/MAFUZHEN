@@ -1,8 +1,9 @@
 html, body {
     height: 100%;
     margin: 0;
-    padding: 10px;  
+    padding: 0px;  
 }
+
 
 body {
     background-color:rgb(241, 241, 237);
@@ -11,6 +12,13 @@ body {
     align-items: center;
     font-family: "Helvetica", "Arial", sans-serif
 }
+@media only screen and (max-width: 768px) {
+    body {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
 h1{
     font-size: 30px;
     color: black;
