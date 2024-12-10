@@ -1,11 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+/* styles.css */
+@font-face {
+    font-family: 'Charter';
+    src: url('https://raw.githubusercontent.com/google/fonts/main/ofl/charter/Charter-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 body, h1, h2, p {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif; /* 应用Inter字体 */
-    line-height: 1.6; /* 行间距 */
+    font-family: 'Charter', serif;
+    line-height: 1.6;
 }
+
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 .custom-cursor {
     position: fixed;
     width: 24px;
@@ -13,31 +25,27 @@ body, h1, h2, p {
     border-radius: 50%;
     pointer-events: none;
     transform: translate(-50%, -50%);
-    transition: transform 1s cubic-bezier(.29,0,0,.99), width 1s cubic-bezier(.29,0,0,.99), height 1s cubic-bezier(.29,0,0,.99);
+    transition: transform 1s cubic-bezier(.29,0,0,.99), 
+                width 1s cubic-bezier(.29,0,0,.99), 
+                height 1s cubic-bezier(.29,0,0,.99),
+                background-color 0.3s ease;
     z-index: 9999;
-    background-color: rgba(0, 0, 0, 0.1); /* 半透明白色作为背景色 */
-    backdrop-filter: blur(5px); /* 模糊背景 */
-    -webkit-backdrop-filter: blur(5px); /* 针对旧版Safari的前缀 */
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
-
-.custom-cursor:hover {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-/* 页面居中容器 */
 .container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     text-align: left;
     padding: 0 20px;
     padding-top: 6%;
 }
 
-/* 主要内容区域 */
 main {
     max-width: 600px;
     width: 100%;
@@ -45,96 +53,131 @@ main {
     flex-direction: column;
     align-items: flex-start;
 }
-/* Animation Fade in effect */
 
-#jobtitle {
-    opacity: 0;
-    animation: fadeIn 1.2s cubic-bezier(.29,0,0,.99) forwards;
-}
-#projects {
-    opacity: 0;
-    animation: fadeIn 1.2s cubic-bezier(.29,0,0,.99) forwards;
-    animation-delay: 50ms;
-}
-#thoughts {
-    opacity: 0;
-    animation: fadeIn 1.2s cubic-bezier(.29,0,0,.99) forwards;
-    animation-delay: 100ms;
-}
-#about {
-    opacity: 0;
-    animation: fadeIn 1.2s cubic-bezier(.29,0,0,.99) forwards;
-    animation-delay: 150ms;
-}
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* section间较大间距 */
 section {
-    margin-bottom: 20px; /* 每个section之间的间距较大 */
+    margin-bottom: 20px;
+    width: 100%;
 }
 
-/* 大标题样式 */
 h1, h2 {
-    font-size: 22px; /* 字体大小 */
-    color: #000000; /* 纯黑色 */
-    margin-bottom: 4px; /* 标题下的间距 */
+    font-size: 22px;
+    color: #000000;
+    margin-bottom: 4px;
+    transition: color 0.3s ease;
 }
 
-/* 段落样式调整为较小间距 */
-/* 段落样式 */
 p {
     font-size: 16px;
-    color: rgba(0, 0, 0, 0.5); /* 初始颜色为半透明黑色 */
+    color: rgba(0, 0, 0, 0.5);
     margin-bottom: 16px;
-    transition: color 0.5s ease-in-out, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1); /* 同时应用两种过渡 */
+    transition: color 0.5s ease-in-out, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* 定义链接样式，使其看起来与段落文本一致 */
 p a {
-    color: rgba(0, 0, 0, 0.5); /* 使链接颜色与段落文本一致 */
-    text-decoration: none; /* 去除下划线 */
-    transition: color 0.35s ease-in-out; /* 使颜色变化平滑 */
+    color: rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    transition: color 0.35s ease-in-out;
 }
 
-/* 鼠标悬停在段落上时的样式，也适用于链接 */
 p:hover, p a:hover {
-    color: #000000; /* 鼠标悬停时颜色变为纯黑 */
-    transform: scale(1.04); /* 放大效果只适用于段落 */
+    color: #000000;
+    transform: scale(1.04);
 }
-/* 重置悬停效果 */
+
 #jobtitle p:hover, #about p:hover {
-    /* 将所有悬停效果改变的属性重置为默认值 */
-    /* 例如: */
-    color: rgba(0, 0, 0, 0.5); /* 假设这是你的默认文本颜色 */
-    transform: none; /* 如果你有放大效果 */
+    color: rgba(0, 0, 0, 0.5);
+    transform: none;
 }
 
 #Socials {
     display: flex;
-    justify-content: space-between; /* 确保子元素平均分布在容器的两端 */
-    align-items: center;
+    justify-content: flex-start;
+    gap: 32px;
 }
 
-#Socials p {
-    margin: 0 10%; /* 给每个p元素添加左右的间距 */
-}
-#Socials p:first-child {
-    margin-left: 0; /* 移除第一个p元素的左边距 */
+/* Animation */
+#jobtitle { opacity: 0; animation: fadeIn 1.2s cubic-bezier(.29,0,0,.99) forwards; }
+#projects { opacity: 0; animation: fadeIn 1.2s cubic-bezier(.29,0,0,.99) forwards; animation-delay: 50ms; }
+#thoughts { opacity: 0; animation: fadeIn 1.2s cubic-bezier(.29,0,0,.99) forwards; animation-delay: 100ms; }
+#about { opacity: 0; animation: fadeIn 1.2s cubic-bezier(.29,0,0,.99) forwards; animation-delay: 150ms; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
+/* Dark Mode */
+[data-theme="dark"] {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
 
-/* 响应式设计 */
-@media (max-width: 600px) {
+[data-theme="dark"] h1,
+[data-theme="dark"] h2 {
+    color: #ffffff;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] p a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] p:hover,
+[data-theme="dark"] p a:hover {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .custom-cursor {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-family: 'Charter', serif;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+[data-theme="dark"] .theme-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding-top: 4%;
+        padding: 0 16px;
+    }
+
     main {
-        /* 适应小屏幕 */
+        max-width: 100%;
+    }
+
+    h1, h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    #Socials {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .theme-toggle {
+        top: 12px;
+        right: 12px;
+        padding: 6px 12px;
     }
 }
